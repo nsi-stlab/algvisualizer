@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>队列</title> 
+<style> 
+*{margin:0; padding:0;}
+#z{height:50px; border:#000 solid 4px; display:inline-block; transition: width 0.7s; margin:50px; margin-left:200px;}
+#z ul{float:left;}
+#z li{width:47px; height:47px; background:#090; list-style-type:none; float:left; margin:1px; animation:myfirst 1s; position:relative;}
+.rc{margin:200px;}
+input{width:100px; height:50px; font-size:24px;}
+@keyframes myfirst{
+	0%   {left:100px; top:100px; opacity:0;}
+	50%  {left:100px; top:0px; opacity:1;}
+	100% {left:0px;}
+}
+</style>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	function r(){
+		var div = document.createElement('li');
+		div.innerHTML = ''; //设置显示的数据，可以是标签．
+		div.style.background = "rgb("+Math.random()*255+","+Math.random()*255+","+Math.random()*255+")";//设置css样式,s设置背景颜色\
+		var bo = document.getElementById("x");//获取body对象.
+		//动态插入到body中
+		bo.insertBefore(div,bo.lastChild);
+	}
+	
+	function c(){
+		//$("#z li:first-child").css("animation","myfirst2 0.4s");
+		//$("#z li:first-child").fadeIn();
+		$("#z li:first-child").animate({left:'-100px'},500);
+		$("#z li:first-child").animate({top:'100px',opacity:0},500,function(){
+			$("#z li:first-child").remove();
+			$("#x").css("marginLeft","0");
+		});
+		$("#x").animate({marginLeft:'-49px'},200);
+		
+		//setTimeout(function(){$("#z li:first-child").remove()}, 400);
+	}
+</script>
+</head>
+<body>
+
+    <div id="z">    
+        <ul id="x">
+            <li></li>
+        </ul>
+    </div>
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;队列</h1>
+    <div class="rc">
+        <input type="button" value="入栈" onClick="r()">
+        <input type="button" value="出栈" onClick="c()">
+    </div>
+    
+</body>
+</html>
