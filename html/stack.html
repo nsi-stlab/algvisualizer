@@ -107,18 +107,16 @@
 							</div>
 							<!--<h1>队列</h1>-->
 							<div class="rc">
-								<input type="button" value="入栈" onclick="r()">
-								<input type="text" value="1" class="rz">
-								<input type="button" value="出栈" onClick="c()">
-								<input type="text" value="1" class="cz">
+								<input type="button" value="入栈" class="in">
+								<input type="text" value="1" class="inStack">
+								<input type="button" value="出栈" class="out">
+								<input type="text" value="1" class="outStack">
 							</div>
 							<div class="rc2">
-								<textarea class="in1" type="text" >r(10);c(8);r(11);c(2);</textarea>
+								<textarea class="in1" type="text" >c(3);</textarea>
 								<br/>
-								<div id="CodeRun" onClick="CodeRun()"></div>
+								<input id="CodeRun" type="button" value="出栈">
 							</div>
-							<script src="js/index.js"></script>
-
 						</figure>
 					</div>
 
@@ -167,6 +165,10 @@
 
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
+
+
+	<script src="js/alg/require.js"></script>
+	<script src="js/alg/index.js"></script>
 
 	</body>
 </html>
