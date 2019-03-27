@@ -42,7 +42,7 @@
 
 
 #z{
-    width: 100%; height: auto;
+    width: 990px; height:112px;
     border:#666 solid 2px;
     display:inline-block;
     /*transition: height 0.7s;*/
@@ -54,8 +54,9 @@
     color: #fff; font-size: 20px; text-align: center;
     line-height: 47px; list-style-type:none;
     float:left; margin:4px;
-    animation:myfirst 1s;
+    animation:myfirst 0.4s;
     position:relative;
+    border:solid 1px black;
 }
 #z dd{
     width:1px; height:47px;
@@ -81,7 +82,11 @@ input{
     font-family: 黑体; font-size: 16px;
 }
 @keyframes myfirst{
+    0%   {opacity:0;}
+    100% {opacity:1;}
+    /*
     0%   {left:100px; top:100px; opacity:0;}
     50%  {left:100px; top:0px; opacity:1;}
     100% {left:0px;}
+    */
 }
