@@ -57,6 +57,7 @@
     animation:myfirst 0.4s;
     position:relative;
     border:solid 1px black;
+    transition:background-color 0.3s;
 }
 #z dd{
     width:1px; height:47px;

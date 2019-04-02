@@ -5,6 +5,8 @@ require("js/alg/codeRun.js");
 require("js/alg/number.js");
 require("js/alg/runIn.js");
 require("js/alg/runOut.js");
+require("js/alg/bump.js");
+
 
 
 ///////////////////////////生成队列方块////////////////////////
@@ -17,28 +19,34 @@ for(var i=0;i<36;i++){
 ///////////////////////////生成队列方块////////////////////////
 
 ///////////////////////////点击出队入队////////////////////////
-var block=0; //入队号
-var blockOut=0; //出队号
+var block=(-1); //入队号
+var blockOut=(-1); //出队号
 
 $(".in").click(function(){
-    //timer(ins,3,block++);
-    var inStack = document.getElementsByClassName("inStack")[0].value[0];
-    ins(inStack,block); //指定几号方块入队列
-    if(block < 35){
-        block++;
-    }else{
-        block = 0;
+    if(bump() != 0){
+        var inStack = document.getElementsByClassName("inStack")[0].value[0];
+        if(block < 35){
+            block++;
+        }else{
+            block = 0;
+        }
+        ins(inStack,block); //指定几号方块入队列
     }
+    console.log(block,"---",blockOut,bump());
 });
+
 $(".out").click(function(){
-    out(blockOut);
-    if(blockOut < 35){
-        blockOut++;
-    }else{
-        blockOut = 0;
+    if(bump() != 36) {
+        if (blockOut < 35) {
+            blockOut++;
+        } else {
+            blockOut = 0;
+        }
+        out(blockOut);
     }
+    console.log(block, "---", blockOut,bump());
 });
-///////////////////////////点击出栈入栈////////////////////////
+///////////////////////////点击出队入队////////////////////////
 
 ///////////////////////////点击代码执行////////////////////////
 $("#CodeRun").click(function(){
