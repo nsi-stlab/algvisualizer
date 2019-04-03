@@ -31,6 +31,18 @@ $(".in").click(function(){
             block = 0;
         }
         ins(inStack,block); //指定几号方块入队列
+
+        if(block < 18){
+            $(".stackHead .p2").css({"left":block*55+"px"});
+
+            $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
+            $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
+        }else{
+            $(".stackBottom .p2").css({"left":(block-18)*55+"px"});
+
+            $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
+            $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0)"});
+        }
     }
     console.log(block,"---",blockOut,bump());
 });
@@ -43,6 +55,19 @@ $(".out").click(function(){
             blockOut = 0;
         }
         out(blockOut);
+
+
+        if(blockOut < 17){
+            $(".stackHead .p1").css({"left":(blockOut+1)*55+"px"});
+
+            $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0)"});
+            $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
+        }else{
+            $(".stackBottom .p1").css({"left":(blockOut-17)*55+"px"});
+
+            $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
+            $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0)"});
+        }
     }
     console.log(block, "---", blockOut,bump());
 });

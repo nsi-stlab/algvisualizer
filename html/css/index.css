@@ -44,8 +44,8 @@
 #z{
     width: 990px; height:112px;
     border:#666 solid 2px;
-    display:inline-block;
-    /*transition: height 0.7s;*/
+    /*display:inline-block;
+    transition: height 0.7s;*/
     box-sizing:unset;
 }
 #z ul{float:left; margin: 0;}
@@ -91,3 +91,9 @@ input{
     100% {left:0px;}
     */
 }
+.stackHead{position: relative; height: 35px;}
+.stackBottom{position: relative; height: 35px;}
+.stackHead p{color: rgba(0, 0, 0, 0.5);}
+.stackBottom p{color: rgba(0, 0, 0, 0);}
+.stackHead .p1 , .stackHead .p2{display: inline-block; margin: 0; width: 55px; position: absolute; left: 0; transition:left 0.1s;}
+.stackBottom .p1 , .stackBottom .p2{display: inline-block; margin: 0; width: 55px; position: absolute; left: 0; transition:left 0.1s;}
