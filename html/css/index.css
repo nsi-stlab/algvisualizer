@@ -91,6 +91,9 @@ input{
     100% {left:0px;}
     */
 }
+
+.inStack{width: 400px;}
+
 .stackHead{position: relative; height: 35px;}
 .stackBottom{position: relative; height: 35px;}
 .stackHead p{color: rgba(0, 0, 0, 0.5);}
