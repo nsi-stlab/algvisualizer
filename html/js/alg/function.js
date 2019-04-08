@@ -2,6 +2,10 @@
 var ins = function ins(inStack,block){
     $(".li"+block).css({"background-color":"rgb(218,13,17)"});
     $(".li"+block).text(inStack);
+    if((block+=1) == 36){
+        block = 0;
+    }
+    console.log(block);
     if(block < 18){
         $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
         $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
@@ -17,6 +21,9 @@ var ins = function ins(inStack,block){
 var out = function out(num){
     $(".li"+num).css({"background-color":"rgb(0,0,0,0)"});
     $(".li"+num).text("");
+    if(blockOut == 35){
+        blockOut = -1;
+    }
     if(blockOut < 17){
         $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0)"});
         $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
@@ -64,3 +71,51 @@ var create = function create(num){
         bo.insertBefore(div, bo.lastChild); //动态插入到body中
     }
 }
+
+//判断入队出队文字重叠
+var crash = function crash(i) {
+    if(i == 0 || i == 36){
+        $(".stackHead .p2").css({"bottom":25+"px"});
+        $(".stackBottom .p2").css({"top":25+"px"});
+    }else {
+        $(".stackHead .p2").css({"bottom":3+"px"});
+        $(".stackBottom .p2").css({"top":3+"px"});
+    }
+}
+
+//
+var codeRun = function codeRun() {
+    var T = $(".in1").val(), //读取输入框里的数据
+        MyAr=new Array(),
+        I = 0,
+        O = 0,
+        J = '';
+    for(var i=0;i<T.length;i++){ //分析入队和出队各有多少个，保存在MyAr数组里
+        if(T[i] == "("){
+            if(T[i-1] == "r"){
+                I = 1;
+                continue
+            }else if(T[i-1] == "c"){
+                O = 1;
+                continue
+            }
+        }else if (T[i] == ")"){
+            if(I == 1){
+                MyAr.push('I'+J);
+            }else if(O == 1){
+                MyAr.push('O'+J);
+            }
+            J = '';
+            I = 0;
+            O = 0;
+        }
+
+        if(I == 1){
+            J += T[i];
+        }else if(O == 1){
+            J += T[i];
+        }
+    }
+    return MyAr;
+}
+
