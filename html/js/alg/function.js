@@ -66,7 +66,7 @@ var create = function create(num){
 
 //判断入队出队文字重叠
 var crash = function crash(num,i) {
-    console.log(num);
+    console.log(num,"crash");
     if(num == 0 || num == 20){
         var t = 0.314;
         var p = (i+1)*t-1;
