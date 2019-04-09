@@ -3,8 +3,9 @@ create(memory); //创建36个内存块
 var block=(-1); //入队号,队头
 var blockOut=(-1); //出队号,队尾
 
-
-
+if(localStorage.getItem('name') == 1){
+    $("#mask").remove();
+}
 
 function timerPromisefyIn() {
     $('.in').attr("disabled",true);
@@ -102,3 +103,18 @@ $(".inStack").blur(function() {
 
 
 
+
+mask([
+    {
+        id: 'x',
+        desc: '这是内存块'
+    },
+    {
+        id: 'in',
+        desc: '这是入队框，可将框内字符连续入队，最长输入二十位。'
+    },
+    {
+        id: 'out',
+        desc: '这是出队框，可连续出队，最多输入两位数。'
+    }
+]);

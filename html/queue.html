@@ -92,9 +92,14 @@
 			</div>
 
 		</aside>
-
+		<br/><br/>
 		<div id="fh5co-main">
-
+			<div id="mask">
+				<div class="mask-tip">
+					<span id="mask-desc" class="mask-tip-desc"></span>
+					<button id="mask-next" class="mask-tip-btn">下一步</button>
+				</div>
+			</div>
 			<div class="fh5co-narrow-content">
 				<div class="row">
 
@@ -109,12 +114,13 @@
 								<div class="rc">
 									<br/><br/>
 									<input type="button" value="入队" class="btn btn-info in">
-									<input type="text" value="0ddd" class="form-control inStack">
+									<input type="text" value="0" class="form-control inStack" id="in">
 									<br/><br/>
 									<input type="button" value="出队" class="btn btn-info out">
-									<input type="text" value="1" class="form-control outStack">
+									<input type="text" value="1" class="form-control outStack" id="out">
 								</div>
 							</div>
+
 							<!--<h1>队列</h1>-->
 
 							<!--<div class="rc2">
@@ -175,7 +181,6 @@
 	<!--<script src="js/alg/require.js"></script>-->
 	<script src="js/alg/function.js"></script>
 	<script src="js/alg/index.js"></script>
-
 	</body>
 </html>
 
