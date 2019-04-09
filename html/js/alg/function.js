@@ -5,7 +5,6 @@ var ins = function ins(inStack,block){
     if((block+=1) == 36){
         block = 0;
     }
-    console.log(block);
     if(block < 18){
         $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
         $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
@@ -80,6 +79,17 @@ var crash = function crash(i) {
     }else {
         $(".stackHead .p2").css({"bottom":3+"px"});
         $(".stackBottom .p2").css({"top":3+"px"});
+    }
+}
+
+//判断入队出队文字重叠
+var crashFont = function crashFont(i) {
+    if(i == 0){
+        $("#h4").text("队列已满");
+    }else if(i == 36){
+        $("#h4").text("队列已空");
+    }else{
+        $("#h4").text("队列未满");
     }
 }
 

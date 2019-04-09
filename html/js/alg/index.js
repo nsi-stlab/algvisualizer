@@ -14,7 +14,7 @@ $(".in").click(function(){ //点击入队按钮
         }
     }
     crash(bump()); //判断队头队尾文字碰撞
-    //$("#h4").text("此时 "+inStack+" 入队");
+    crashFont(bump()); //队列为空&满时，提示
     console.log(block,"---",blockOut,bump());
 });
 
@@ -29,5 +29,27 @@ $(".out").click(function(){
         }
     }
     crash(bump());
+    crashFont(bump());
     console.log(block, "---", blockOut,bump());
+})
+
+//----------------------------------------------------------------//
+
+//keyup键盘按下，keyup键盘弹起
+$(".outStack").blur(function() { //文本框失去焦点后
+    if(this.value.replace(/\D/g,'').length == 0){ //如果文本框没有内容
+        this.value = 1;
+    }else if(this.value.length > 2 ){ //如果文本框长度 > 2
+        this.value=this.value.replace(/\D/g,'').substring(0, 2);
+    }else {
+        this.value=this.value.replace(/\D/g,'');
+    }
+})
+
+$(".inStack").blur(function() {
+    if(this.value.length == 0){
+        this.value = 1;
+    }else if(this.value.length > 36 ){
+        this.value=this.value.substring(0, 36);
+    }
 })
