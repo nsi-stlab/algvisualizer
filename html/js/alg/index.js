@@ -1,5 +1,5 @@
-
-create(36); //创建36个内存块
+var memory = 20;
+create(memory); //创建36个内存块
 var block=(-1); //入队号,队头
 var blockOut=(-1); //出队号,队尾
 
@@ -13,7 +13,7 @@ $(".in").click(function(){ //点击入队按钮
             ins(inStack[i], block); //ins(入队内容,几号块入队)
         }
     }
-    crash(bump()); //判断队头队尾文字碰撞
+    crash(bump(),block); //判断队头队尾文字碰撞
     crashFont(bump()); //队列为空&满时，提示
     console.log(block,"---",blockOut,bump());
 });
@@ -23,12 +23,12 @@ $(".in").click(function(){ //点击入队按钮
 $(".out").click(function(){
     var outStack = document.getElementsByClassName("outStack")[0].value; //获取入队输入的字符
     for(var j=0;j<outStack;j++) {
-        if (bump() != 36) {
+        if (bump() != memory) {
             blockOut = queueLogic(blockOut);
-            out(blockOut); ////out(几号块出队)
+            out(blockOut); //out(几号块出队)
         }
     }
-    crash(bump());
+    crash(bump(),block);
     crashFont(bump());
     console.log(block, "---", blockOut,bump());
 })
@@ -49,7 +49,10 @@ $(".outStack").blur(function() { //文本框失去焦点后
 $(".inStack").blur(function() {
     if(this.value.length == 0){
         this.value = 1;
-    }else if(this.value.length > 36 ){
-        this.value=this.value.substring(0, 36);
+    }else if(this.value.length > memory ){
+        this.value=this.value.substring(0, memory);
     }
 })
+
+
+

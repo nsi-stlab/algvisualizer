@@ -40,24 +40,30 @@
 
 }
 
+.ihead , .ibottom{background: #333; transition:all 0.1s !important;}
+.ihead{left: -42.6607px;top: 330.157px;}
+.ibottom{left: 3.71464px;top: 300.588px;}
 
 #z{
-    width: 990px; height:112px;
-    border:#666 solid 2px;
-    /*display:inline-block;
-    transition: height 0.7s;*/
-    box-sizing:unset;
+    /*width: 990px; height:112px;*/
+    /*border:#666 solid 2px;*/
+    /*!*display:inline-block;*/
+    /*transition: height 0.7s;*!*/
+    /*box-sizing:unset;*/
+    position: relative;
 }
-#z ul{float:left; margin: 0;}
+#z ul{margin: 0; position: relative; width: 395px; height: 395px; float: left;}
+#z ul > span{width: 10px; height: 10px; background: aqua; position: absolute; top: 0;left: 0;}
 #z li{
     width:47px; height:47px;
     color: #fff; font-size: 20px; text-align: center;
     line-height: 47px; list-style-type:none;
-    float:left; margin:4px;
+    /*float:left; margin:4px;*/
     animation:myfirst 0.4s;
-    position:relative;
-    border:solid 1px black;
-    transition:background-color 0.3s;
+    border:solid 1px #aaa;
+    transition:all 0.3s;
+    position: absolute;
+    border-radius: 50px;
 }
 #z dd{
     width:1px; height:47px;
@@ -66,7 +72,7 @@
     position:relative;
     margin-left: -1px;
 }
-.rc{}
+.rc{float: left; height: 350px; padding:100px 0 0 150px; text-align: left;}
 .CodeRun{
     width: 30px; height: 40px;
     background-image:url(../images/start.png);
@@ -92,7 +98,11 @@ input{
     */
 }
 
-.inStack{width: 700px;}
+.inStack{width: 250px; display: inline-block;}
+.outStack{width: 70px; display: inline-block;}
+.in , .out{margin: 0; height: 54px;}
+.in:hover , .out:hover{background: #00a6d6 !important; border-color: #00a6d6 !important;}
+
 
 .stackHead{position: relative; height: 35px;}
 .stackBottom{position: relative; height: 35px;}

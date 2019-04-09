@@ -101,27 +101,22 @@
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
 						<figure class="text-center">
 							<h2 id="h4">此时队列为空</h2>
-							<div class="stackHead">
-								<p class="p1">队头</p>
-								<p class="p2">队尾</p>
-							</div>
-							<div id="z">
+							<div id="z" class="clearfix">
 								<ul id="x">
+									<li class="ihead">头</li>
+									<li class="ibottom">尾</li>
 								</ul>
-							</div>
-							<div class="stackBottom">
-								<p class="p1">队头</p>
-								<p class="p2">队尾</p>
+								<div class="rc">
+									<br/><br/>
+									<input type="button" value="入队" class="btn btn-info in">
+									<input type="text" value="0" class="form-control inStack">
+									<br/><br/>
+									<input type="button" value="出队" class="btn btn-info out">
+									<input type="text" value="1" class="form-control outStack">
+								</div>
 							</div>
 							<!--<h1>队列</h1>-->
-							<br/>
-							<div class="rc">
-								<input type="button" value="入队" class="in">
-								<input type="text" value="1" class="inStack">
-								<br/>
-								<input type="button" value="出队" class="out">
-								<input type="text" value="1" class="outStack">
-							</div>
+
 							<!--<div class="rc2">
 								<textarea class="in1" type="text" >r(4);c(3);</textarea>
 								<br/>

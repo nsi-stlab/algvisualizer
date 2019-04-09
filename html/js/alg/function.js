@@ -2,41 +2,31 @@
 var ins = function ins(inStack,block){
     $(".li"+block).css({"background-color":"rgb(218,13,17)"});
     $(".li"+block).text(inStack);
-    if((block+=1) == 36){
-        block = 0;
-    }
-    if(block < 18){
-        $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p2").css({"left":block*55+"px"});
-    }else{
-        $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackBottom .p2").css({"left":(block-18)*55+"px"});
-    }
+    var left = $(".li"+block).css("left");
+    var top = $(".li"+block).css("top")
+    console.log(left,top);
+
+    var t = 0.314;
+    var p = (block+1)*t-1;
+    $(".ihead").css({"left":Math.sin(p)*215+185,"top":Math.cos(p)*215+185});
 }
 
 //出队列
 var out = function out(num){
     $(".li"+num).css({"background-color":"rgb(0,0,0,0)"});
     $(".li"+num).text("");
-    if(blockOut == 35){
-        blockOut = -1;
-    }
-    if(blockOut < 17){
-        $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p1").css({"left":(blockOut+1)*55+"px"});
-    }else{
-        $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackBottom .p1").css({"left":(blockOut-17)*55+"px"});
-    }
+    var left = $(".li"+num).css("left");
+    var top = $(".li"+num).css("top")
+    console.log(left,top);
+
+    var t = 0.314;
+    var p = (num+1)*t-1;
+    $(".ibottom").css({"left":Math.sin(p)*215+185,"top":Math.cos(p)*215+185});
 }
 
 //队列环逻辑
 var queueLogic = function queueLogic(i){
-    if (i < 35) {
+    if (i < (memory-1)) {
         i++;
     } else {
         i = 0;
@@ -47,7 +37,7 @@ var queueLogic = function queueLogic(i){
 //判断队列内是空的还是满的，处理队列碰撞
 var bump = function bump(){
     var a=0,b=0;
-    for(var i=0;i<36;i++){
+    for(var i=0;i<memory;i++){
         var u = $(".li"+i).text();
         if(u == ""){
             a++;
@@ -68,17 +58,23 @@ var create = function create(num){
         div.className = "li" + i; //为标签创建唯一class
         var bo = document.getElementById("x");//获取body对象
         bo.insertBefore(div, bo.lastChild); //动态插入到body中
+        var t = 0.314;
+        var p = (i+1)*t-1;
+        $(".li"+i).css({"left":Math.sin(p)*160+185,"top":Math.cos(p)*160+185});
     }
 }
 
 //判断入队出队文字重叠
-var crash = function crash(i) {
-    if(i == 0 || i == 36){
-        $(".stackHead .p2").css({"bottom":25+"px"});
-        $(".stackBottom .p2").css({"top":25+"px"});
+var crash = function crash(num,i) {
+    console.log(num);
+    if(num == 0 || num == 20){
+        var t = 0.314;
+        var p = (i+1)*t-1;
+        $(".ihead").css({"left":Math.sin(p)*270+185,"top":Math.cos(p)*270+185});
     }else {
-        $(".stackHead .p2").css({"bottom":3+"px"});
-        $(".stackBottom .p2").css({"top":3+"px"});
+        var t = 0.314;
+        var p = (i+1)*t-1;
+        $(".ihead").css({"left":Math.sin(p)*215+185,"top":Math.cos(p)*215+185});
     }
 }
 
@@ -86,46 +82,14 @@ var crash = function crash(i) {
 var crashFont = function crashFont(i) {
     if(i == 0){
         $("#h4").text("队列已满");
-    }else if(i == 36){
+    }else if(i == memory){
         $("#h4").text("队列已空");
     }else{
         $("#h4").text("队列未满");
     }
 }
 
-//
-var codeRun = function codeRun() {
-    var T = $(".in1").val(), //读取输入框里的数据
-        MyAr=new Array(),
-        I = 0,
-        O = 0,
-        J = '';
-    for(var i=0;i<T.length;i++){ //分析入队和出队各有多少个，保存在MyAr数组里
-        if(T[i] == "("){
-            if(T[i-1] == "r"){
-                I = 1;
-                continue
-            }else if(T[i-1] == "c"){
-                O = 1;
-                continue
-            }
-        }else if (T[i] == ")"){
-            if(I == 1){
-                MyAr.push('I'+J);
-            }else if(O == 1){
-                MyAr.push('O'+J);
-            }
-            J = '';
-            I = 0;
-            O = 0;
-        }
+//圆盘位置
+var round = function round(){
 
-        if(I == 1){
-            J += T[i];
-        }else if(O == 1){
-            J += T[i];
-        }
-    }
-    return MyAr;
 }
-
