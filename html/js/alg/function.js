@@ -2,26 +2,38 @@
 var ins = function ins(inStack,block){
     $(".li"+block).css({"background-color":"rgb(218,13,17)"});
     $(".li"+block).text(inStack);
-    var left = $(".li"+block).css("left");
-    var top = $(".li"+block).css("top")
-    console.log(left,top);
 
-    var t = 0.314;
-    var p = (block+1)*t-1;
-    $(".ihead").css({"left":Math.sin(p)*215+185,"top":Math.cos(p)*215+185});
+    if((block+=1) == 36){
+        block = 0;
+    }
+    if(block < 18){
+        $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".stackHead .p2").css({"left":block*55+"px"});
+    }else{
+        $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".stackBottom .p2").css({"left":(block-18)*55+"px"});
+    }
 }
 
 //出队列
 var out = function out(num){
     $(".li"+num).css({"background-color":"rgb(0,0,0,0)"});
     $(".li"+num).text("");
-    var left = $(".li"+num).css("left");
-    var top = $(".li"+num).css("top")
-    console.log(left,top);
 
-    var t = 0.314;
-    var p = (num+1)*t-1;
-    $(".ibottom").css({"left":Math.sin(p)*215+185,"top":Math.cos(p)*215+185});
+    if(blockOut == 35){
+        blockOut = -1;
+    }
+    if(blockOut < 17){
+        $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".stackHead .p1").css({"left":(blockOut+1)*55+"px"});
+    }else{
+        $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".stackBottom .p1").css({"left":(blockOut-17)*55+"px"});
+    }
 }
 
 //队列环逻辑
@@ -58,23 +70,20 @@ var create = function create(num){
         div.className = "li" + i; //为标签创建唯一class
         var bo = document.getElementById("x");//获取body对象
         bo.insertBefore(div, bo.lastChild); //动态插入到body中
-        var t = 0.314;
-        var p = (i+1)*t-1;
-        $(".li"+i).css({"left":Math.sin(p)*160+185,"top":Math.cos(p)*160+185});
+        // var t = 0.314;
+        // var p = (i+1)*t-1;
+        // $(".li"+i).css({"left":Math.sin(p)*160+185,"top":Math.cos(p)*160+185});
     }
 }
 
 //判断入队出队文字重叠
-var crash = function crash(num,i) {
-    console.log(num,"crash");
-    if(num == 0 || num == 20){
-        var t = 0.314;
-        var p = (i+1)*t-1;
-        $(".ihead").css({"left":Math.sin(p)*270+185,"top":Math.cos(p)*270+185});
+var crash = function crash(i) {
+    if(i == 0 || i == 36){
+        $(".stackHead .p2").css({"bottom":25+"px"});
+        $(".stackBottom .p2").css({"top":25+"px"});
     }else {
-        var t = 0.314;
-        var p = (i+1)*t-1;
-        $(".ihead").css({"left":Math.sin(p)*215+185,"top":Math.cos(p)*215+185});
+        $(".stackHead .p2").css({"bottom":3+"px"});
+        $(".stackBottom .p2").css({"top":3+"px"});
     }
 }
 

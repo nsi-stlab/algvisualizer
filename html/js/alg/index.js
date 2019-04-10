@@ -1,4 +1,4 @@
-var memory = 20;
+var memory = 36;
 create(memory); //创建36个内存块
 var block=(-1); //入队号,队头
 var blockOut=(-1); //出队号,队尾
@@ -14,7 +14,7 @@ function timerPromisefyIn() {
     var i = 0;
     return new Promise(function (resolve,reject) {
         var sivIn = setInterval(function () {
-            crash(bump(),block); //判断队头队尾文字碰撞
+            crash(bump()); //判断队头队尾文字碰撞
             crashFont(bump()); //队列为空&满时，提示
             console.log("a");
             if(bump() != 0 && num > 0) { //bump 0=满队列 & 36=空队列
@@ -36,7 +36,7 @@ function timerPromisefyOut() {
     var outStack = document.getElementsByClassName("outStack")[0].value; //获取入队输入的字符
     return new Promise(function (resolve,reject) {
         var sivOut = setInterval(function () {
-            crash(bump(),block);
+            crash(bump());
             crashFont(bump());
             if (bump() != memory && outStack > 0) {
                 blockOut = queueLogic(blockOut);
@@ -58,7 +58,7 @@ $(".in").click(function(){ //点击入队按钮
     console.log(bump());
     timerPromisefyIn().then(function (value) {
         $('.in').attr("disabled",false);
-        crash(bump(),block);
+        crash(bump());
         crashFont(bump());
         console.log(block,"---",blockOut,bump());
     });
@@ -72,7 +72,7 @@ $(".out").click(function(){
 
     timerPromisefyOut().then(function (value) {
         $('.out').attr("disabled",false);
-        crash(bump(),block);
+        crash(bump());
         crashFont(bump());
         console.log(block, "---", blockOut,bump());
     });
