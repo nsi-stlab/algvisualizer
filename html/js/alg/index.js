@@ -9,11 +9,11 @@ if(localStorage.getItem('name') == 1){
 
 function timerPromisefyIn() {
     $('.in').attr("disabled",true);
-    var inStack = document.getElementsByClassName("inStack")[0].value; //获取入队输入的字符
-    var num = inStack.length;
-    var i = 0;
+    let inStack = document.getElementsByClassName("inStack")[0].value; //获取入队输入的字符
+    let num = inStack.length;
+    let i = 0;
     return new Promise(function (resolve,reject) {
-        var sivIn = setInterval(function () {
+        let sivIn = setInterval(function () {
             crash(bump()); //判断队头队尾文字碰撞
             crashFont(bump()); //队列为空&满时，提示
             console.log("a");
@@ -33,9 +33,9 @@ function timerPromisefyIn() {
 
 function timerPromisefyOut() {
     $('.out').attr("disabled",true);
-    var outStack = document.getElementsByClassName("outStack")[0].value; //获取入队输入的字符
+    let outStack = document.getElementsByClassName("outStack")[0].value; //获取入队输入的字符
     return new Promise(function (resolve,reject) {
-        var sivOut = setInterval(function () {
+        let sivOut = setInterval(function () {
             crash(bump());
             crashFont(bump());
             if (bump() != memory && outStack > 0) {
@@ -101,8 +101,7 @@ $(".inStack").blur(function() {
     }
 })
 
-
-
+//----------------------------------------------------------------//
 
 mask([
     {
