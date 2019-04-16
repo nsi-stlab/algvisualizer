@@ -7,21 +7,21 @@ function getClass(css) {
 }
 
 //入队列
-function ins(inStack,block){
+function ins(ins,block){
     $(".li"+block).css({"background-color":"rgb(218,13,17)"});
-    $(".li"+block).text(inStack);
+    $(".li"+block).text(ins);
 
     if((block+=1) == 36){
         block = 0;
     }
     if(block < 18){
-        $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p2").css({"left":block*55+"px"});
+        $(".queueBottom .p2").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".queueHead .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".queueHead .p2").css({"left":block*55+"px"});
     }else{
-        $(".stackBottom .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p2").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackBottom .p2").css({"left":(block-18)*55+"px"});
+        $(".queueBottom .p2").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".queueHead .p2").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".queueBottom .p2").css({"left":(block-18)*55+"px"});
     }
 }
 
@@ -34,13 +34,13 @@ function out(num){
         blockOut = -1;
     }
     if(blockOut < 17){
-        $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p1").css({"left":(blockOut+1)*55+"px"});
+        $(".queueBottom .p1").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".queueHead .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".queueHead .p1").css({"left":(blockOut+1)*55+"px"});
     }else{
-        $(".stackBottom .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
-        $(".stackHead .p1").css({"color":"rgba(0, 0, 0, 0)"});
-        $(".stackBottom .p1").css({"left":(blockOut-17)*55+"px"});
+        $(".queueBottom .p1").css({"color":"rgba(0, 0, 0, 0.5)"});
+        $(".queueHead .p1").css({"color":"rgba(0, 0, 0, 0)"});
+        $(".queueBottom .p1").css({"left":(blockOut-17)*55+"px"});
     }
 }
 
@@ -87,11 +87,11 @@ function create(num){
 //判断入队出队文字重叠
 function crash(i) {
     if(i == 0 || i == 36){
-        $(".stackHead .p2").css({"bottom":25+"px"});
-        $(".stackBottom .p2").css({"top":25+"px"});
+        $(".queueHead .p2").css({"bottom":25+"px"});
+        $(".queueBottom .p2").css({"top":25+"px"});
     }else {
-        $(".stackHead .p2").css({"bottom":3+"px"});
-        $(".stackBottom .p2").css({"top":3+"px"});
+        $(".queueHead .p2").css({"bottom":3+"px"});
+        $(".queueBottom .p2").css({"top":3+"px"});
     }
 }
 
@@ -128,7 +128,7 @@ function mask(params) {
 
     localStorage.setItem('name',1);
 
-    let mask = getElementById('mask');
+    let mask = getId('mask');
 
     if (params.length === 0) {
         mask.style.display = 'none';
@@ -138,7 +138,7 @@ function mask(params) {
     let {id, desc} = params[0];
 
     /****************   获取要cover的元素基本信息   ****************/
-    let ele = getElementById(id);
+    let ele = getId(id);
     let offsetWidth = ele.offsetWidth;
     let offsetHeight = ele.offsetHeight;
     let offsetLeft = getPointLeft(ele);
@@ -170,11 +170,11 @@ function mask(params) {
     mask.style.top = 0;
 
     /****************   为Mask设置desc   ****************/
-    let maskDesc = getElementById('mask-desc');
+    let maskDesc = getId('mask-desc');
     maskDesc.innerHTML = desc;
 
     /****************   绑定next事件   ****************/
-    let nextBtn = getElementById('mask-next');
+    let nextBtn = getId('mask-next');
     (function(mask) {
         nextBtn.onclick = function() {
             params.shift();

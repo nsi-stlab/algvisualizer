@@ -98,20 +98,20 @@ input{
     */
 }
 
-.inStack{width: 250px; display: inline-block;}
-.outStack{width: 70px; display: inline-block;}
+.inQueue{width: 250px; display: inline-block;}
+.outQueue{width: 70px; display: inline-block;}
 .in , .out{margin: 0; height: 54px;}
 .in:hover , .out:hover{background: #00a6d6 !important; border-color: #00a6d6 !important;}
 
 /*#h4{float: left; padding: 200px 0 0 200px;}*/
 
-.stackHead{position: relative; height: 35px;}
-.stackBottom{position: relative; height: 35px;}
-.stackHead p{color: rgba(0, 0, 0, 0.5); bottom: 3px;}
-.stackBottom p{color: rgba(0, 0, 0, 0); top: 3px;}
-.stackHead .p2{bottom: 25px;}
-.stackHead .p1 , .stackHead .p2{display: inline-block; margin: 0; width: 55px; position: absolute; left: 0; transition:left 0.1s;}
-.stackBottom .p1 , .stackBottom .p2{display: inline-block; margin: 0; width: 55px; position: absolute; left: 0; transition:left 0.1s;}
+.queueHead{position: relative; height: 35px;}
+.queueBottom{position: relative; height: 35px;}
+.queueHead p{color: rgba(0, 0, 0, 0.5); bottom: 3px;}
+.queueBottom p{color: rgba(0, 0, 0, 0); top: 3px;}
+.queueHead .p2{bottom: 25px;}
+.queueHead .p1 , .queueHead .p2{display: inline-block; margin: 0; width: 55px; position: absolute; left: 0; transition:left 0.1s;}
+.queueBottom .p1 , .queueBottom .p2{display: inline-block; margin: 0; width: 55px; position: absolute; left: 0; transition:left 0.1s;}
 
 
 #first-step {

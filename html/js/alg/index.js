@@ -4,13 +4,13 @@ var block=(-1); //入队号,队头
 var blockOut=(-1); //出队号,队尾
 
 if(localStorage.getItem('name') == 1){
-    $("#mask").remove();
+    $("#mask").css({"display":"none"});
 }
 
 function timerPromisefyIn() {
     $('.in').attr("disabled",true);
-    let inStack = document.getElementsByClassName("inStack")[0].value; //获取入队输入的字符
-    let num = inStack.length;
+    let inQueue = document.getElementsByClassName("inQueue")[0].value; //获取入队输入的字符
+    let num = inQueue.length;
     let i = 0;
     return new Promise(function (resolve,reject) {
         let sivIn = setInterval(function () {
@@ -19,7 +19,7 @@ function timerPromisefyIn() {
             console.log("a");
             if(bump() != 0 && num > 0) { //bump 0=满队列 & 36=空队列
                 block = queueLogic(block); //队列环逻辑
-                ins(inStack[i], block); //ins(入队内容,几号块入队)
+                ins(inQueue[i], block); //ins(入队内容,几号块入队)
                 num--;
                 i++;
             }else {
@@ -33,15 +33,15 @@ function timerPromisefyIn() {
 
 function timerPromisefyOut() {
     $('.out').attr("disabled",true);
-    let outStack = document.getElementsByClassName("outStack")[0].value; //获取入队输入的字符
+    let outQueue = document.getElementsByClassName("outQueue")[0].value; //获取入队输入的字符
     return new Promise(function (resolve,reject) {
         let sivOut = setInterval(function () {
             crash(bump());
             crashFont(bump());
-            if (bump() != memory && outStack > 0) {
+            if (bump() != memory && outQueue > 0) {
                 blockOut = queueLogic(blockOut);
                 out(blockOut); //out(几号块出队)
-                outStack--;
+                outQueue--;
             }else {
                 clearInterval(sivOut);
                 resolve(0);
@@ -83,7 +83,7 @@ $(".out").click(function(){
 //----------------------------------------------------------------//
 
 //keyup键盘按下，keyup键盘弹起
-$(".outStack").blur(function() { //文本框失去焦点后
+$(".outQueue").blur(function() { //文本框失去焦点后
     if(this.value.replace(/\D/g,'').length == 0){ //如果文本框没有内容
         this.value = 1;
     }else if(this.value.length > 2 ){ //如果文本框长度 > 2
@@ -93,7 +93,7 @@ $(".outStack").blur(function() { //文本框失去焦点后
     }
 })
 
-$(".inStack").blur(function() {
+$(".inQueue").blur(function() {
     if(this.value.length == 0){
         this.value = 1;
     }else if(this.value.length > memory ){
