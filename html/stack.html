@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>数据结构-算法可视化演示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="images/logo.png">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css"></head>
+<body>
+    <div id="fh5co-page">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+        <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+            <h1 id="fh5co-logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Free HTML5 Bootstrap Website Template">
+                </a>
+            </h1>
+            <nav id="fh5co-main-menu" role="navigation">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="queue.html">循环队列</a></li>
+                    <li class="fh5co-active"><a href="stack.html">栈</a></li>
+                    <li><a href="">冒泡排序</a></li>
+                    <li><a href="">链表</a></li>
+                    <li><a href="">二叉树</a></li>
+                </ul>
+            </nav>
+            <div class="fh5co-footer">
+                <p>
+                    <small>
+                        <span>&copy; Copyright 2019 沈阳北软信息职业技术学院</span>
+                        <span>北软NSI-STLAB算法可视化演示</span>
+                        <!--<span>Demo Images:
+                        <a href="http://unsplash.com/" target="_blank">Unsplash</a></span>-->
+                    </small>
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://github.com/nsi-stlab/algvisualizer">
+                            <i class="icon-github"></i>
+                        </a>
+                    </li>
+                    <!--<li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram"></i></a></li>
+                    <li><a href="#"><i class="icon-linkedin"></i></a></li>--></ul>
+            </div>
+        </aside>
+        <br/>
+        <br/>
+        <div id="fh5co-main">
+            <div id="mask">
+                <div class="mask-tip">
+                    <span id="mask-desc" class="mask-tip-desc"></span>
+                    <button id="mask-next" class="mask-tip-btn">下一步</button>
+                </div>
+            </div>
+            <div class="fh5co-narrow-content">
+                <div class="row">
+                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                        <figure class="text-center">
+                            <h2 id="h4">栈已空</h2>
+                            <div class="queueHead">
+                                <p class="p1">栈顶</p>
+                                <p class="p2">栈底</p>
+                            </div>
+                            <div id="z" class="clearfix">
+                                <ul id="x">
+                                    <dd></dd>
+                                </ul>
+                            </div>
+                            <div class="queueBottom">
+                                <p class="p1">栈顶</p>
+                                <p class="p2">栈底</p>
+                            </div>
+                            <div class="rc">
+                                <input type="text" value="0" class="form-control inStack" id="in">
+                                <input type="button" value="入栈" class="btn btn-info in">
+                                <br/>
+                                <br/>
+                                <input type="text" value="1" class="form-control outStack" id="out">
+                                <input type="button" value="出栈" class="btn btn-info out">
+                            </div>
+                            <!--<h1>队列</h1>-->
+                            <!--<div class="rc2">
+                            <textarea class="in1" type="text" >r(4);c(3);</textarea>
+                            <br/>
+                            <input class="CodeRun" type="button" value="出队"></div>-->
+                        </figure>
+                    </div>
+                </div>
+                <div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <a href="#">
+                                <i class="icon-long-arrow-left"></i>
+                                <span>Previous Project</span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <a href="#">
+                                <i class="icon-th-large"></i>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <a href="#">
+                                <span>Next Project</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Stellar -->
+    <script src="js/jquery.stellar.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- MAIN JS -->
+    <script src="js/main.js"></script>
+    <script src="js/alg/function.js"></script>
+    <!-- STACK JS -->
+    <script src="js/alg/stack/stack.js"></script>
+    <script src="js/alg/stack/index.js"></script>
+</body>
+
+</html>
