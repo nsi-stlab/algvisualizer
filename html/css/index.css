@@ -72,7 +72,7 @@
     position:relative;
     margin-left: -1px;
 }
-.rc{float: left; height: 350px; padding:110px 0 0 80px; text-align: left;}
+.rc{float: left; height: 350px; padding:70px 0 0 150px; text-align: left;}
 .CodeRun{
     width: 30px; height: 40px;
     background-image:url(../images/start.png);
@@ -98,8 +98,10 @@ input{
     */
 }
 
-.inQueue{width: 250px; display: inline-block;}
-.outQueue{width: 70px; display: inline-block;}
+.inQueue{width: 500px; display: inline-block;}
+.outQueue{width: 500px; display: inline-block;}
+.inStack{width: 500px; display: inline-block;}
+.outStack{width: 500px; display: inline-block;}
 .in , .out{margin: 0; height: 54px;}
 .in:hover , .out:hover{background: #00a6d6 !important; border-color: #00a6d6 !important;}
 
