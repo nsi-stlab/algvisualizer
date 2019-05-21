@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/alg/insertSort/insertSort.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600" style="border: 1px solid #cccccc"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas'),
+            context = canvas.getContext('2d'),
+            WIDTH = canvas.width,
+            HEIGHT = canvas.height,
+            arr=[3,44,38,5,47,15,36,26,27,2,14,16];
+
+
+        //div([宽,高],[起始x轴,起始y轴],[终点x轴,终点y轴],时间,颜色)
+        ins([50,50],[20,20],[400,20],10,'red');
+        ins([50,50],[400,20],[20,20],10,'blue');
+
+        for(let i=0;i<arr.length;i++){
+            ins([40,40],[i*45,20],[i*45,20],10,'blue');
+        }
+
+
+
+
+        //div([10,40],[200,100],[100,270],10,'blue');
+        // function main() {
+        //     return new Promise(function (resolve,reject) {
+        //         console.log("aaa");
+        //         context.clearRect(0, 0, WIDTH, HEIGHT);//清空画布
+        //         div(0, 0, 500, 100, "red");
+        //         let o = 40;
+        //         for (let i = 1; i < arr.length + 1; i++) {
+        //             div(o * i, 40, 30, arr[i - 1] * 10, "blue");
+        //         }
+        //         resolve(0);
+        //     })
+        // }
+        //
+        //
+        function insertionSort(array) {
+
+                console.time('插入排序耗时：');
+                for (let i = 1; i < array.length; i++) {
+                    let key = array[i];
+                    let j = i - 1;
+                    while ( array[j] > key) {
+                        console.log('111');
+                        array[j + 1] = array[j];
+                        j--;
+                    }
+                    array[j + 1] = key;
+                }
+                console.timeEnd('插入排序耗时：');
+                return array;
+
+        }
+
+
+
+
+
+        console.log(insertionSort(arr));
+
+
+        /*var t = 0;
+        setInterval(function () {
+            main([1,2,3,4,3,2,1,2,3,4,3,2,1,2,3,4,3,2,1],t++);
+            if(t>5){
+                t=0;
+            }
+        },70)*/
+    </script>
+</body>
+</html>
