@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css"></head>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/easyui.css">
+</head>
 <body>
 <div id="fh5co-page">
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -61,6 +63,23 @@
 
                             </ul>
                         </div>
+                        <input id="insertStop" type="button" value="已暂停">
+                        <p class="insertText">点按暂停/开始...</p>
+                        <input id="insertNext" type="button" value="下一步">
+                        <input class="easyui-slider" value="25" style="width:300px" data-options="
+			showTip: true,
+			rule: [0,'|',0.5,'|',1,'|',1.5,'|',2],
+			tipFormatter: function(value){
+				return (value/50)+'秒';
+			},
+			onChange: function(value){
+                speed = value/50;
+			}">
+                        <div>
+                            <ul id="xx">
+
+                            </ul>
+                        </div>
                     </figure>
                 </div>
             </div>
@@ -92,6 +111,10 @@
 <script src="js/modernizr-2.6.2.min.js"></script>
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
+
+
+<script src="js/jquery.easyui.min.js"></script>
+
 <!-- Carousel -->
 <script src="js/owl.carousel.min.js"></script>
 <!-- Stellar -->

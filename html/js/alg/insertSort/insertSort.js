@@ -13,9 +13,13 @@ function sleep(second) {
         }, second);
     })
 }
-function dv(arr){
-    for(let i=0;i<arr.length;i++){
-        $(".li"+i).css({"background":"#00c4ff"});
-        $(".li"+i).text(arr[i]);
-    }
+function dv(j){
+    /*两个div交换left位置*/
+    $(".li"+(j+1)).css({"left":$(".li"+j).css("left")});
+    $(".li"+(j)).css({"left":$(".li"+(j+1)).css("left")});
+
+    /*两个div交换class*/
+    $(".li"+j).addClass("lix").removeClass("li"+j);
+    $(".li"+(j+1)).addClass("li"+j).removeClass("li"+(j+1));
+    $(".lix").addClass("li"+(j+1)).removeClass("lix");
 }
