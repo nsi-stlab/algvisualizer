@@ -193,13 +193,17 @@ input{
 }
 
 #insertWrap{}
-#insertWrap .p1 , #insertWrap .p2{background-image:url("../images/arrow.png"); width: 15px; height: 60px; position: absolute; background-size: 30px 60px; top:50px;}
+#insertWrap .p1 , #insertWrap .p2{background-image:url("../images/arrow.png"); width: 15px; height: 60px; position: absolute; background-size: 30px 60px; top:50px; opacity: 1;}
 #insertWrap .p1{background-position-x:0px; left: 10px;transition:all 0.4s !important;}
 #insertWrap .p2{background-position-x:-15px; left: 10px;transition:all 0.2s !important;}
-#insertWrap .p3{height: 100px; background: #666; position: absolute; width: 0px; transition:all 0.2s !important;}
+#insertWrap .p3{height: 80px; top:-20px; background: green; position: absolute; width: 60px; transition:all 0.2s !important;}
+#insertWrap .p4{height: 80px; top:-20px; left: 60px; background: orange; position: absolute; width: 0px; transition:all 0.2s !important;}
+#insertWrap .p3 span , #insertWrap .p4 span{position: absolute; width: 100%; left: 0; top:-35px; overflow: hidden;}
 #insertWrap ul{display: block; clear: both; position: relative; width: 100%; height: 100px;}
 #insertWrap li{width: 40px; height: 40px; background: #00c4ff; color: white; margin-left: 0px; list-style: none; float: left; position: absolute; left: 0px; transition:all 0.2s !important;}
 
 #insertStop{color: white;background:red; border: 0;}
 
 #xx li{list-style: none;}
+
+#insertData{width: 200px;}

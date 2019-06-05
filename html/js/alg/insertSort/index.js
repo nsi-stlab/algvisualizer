@@ -1,92 +1,109 @@
-// function insertionSort(array) {
-//     console.time('插入排序耗时：');
-//     for (let i = 1; i < array.length; i++) {
-//         let key = array[i];
-//         let j = i - 1;
-//         while ( array[j] > key) {
-//             array[j + 1] = array[j];
-//             j--;
-//         }
-//         array[j + 1] = key;
-//     }
-//     console.timeEnd('插入排序耗时：');
-//     return array;
-// }
+/*初始化*/
+var insertSort,insertNum,insertNum2,speed=500;
+var arr = [4,3,2,1];
+function init(arr){
+    insertAreaWidth(0);
+    insertDelete(); //删除div
+    insertCreate(arr); //创建div
+    insertSort = insertSorts(arr); //排序数据
+    insertNum = 0,insertNum2 = 0; //排序指示区标识
+}
+init(arr);
 
-var speed = 0.5;
-var next = 0;
-var arr=[3,44,38,5];
-insertCreate(arr.length);
+/*交换div动画*/
+async function insertAction(num) {
 
-for(let i=0;i<arr.length;i++){
-    $(".li"+i).css({"left":(i*60)+"px"});
-    $(".li"+i).text(arr[i]);
+    let objSpeed = document.getElementsByName("speed");
+    if(objSpeed[0].checked){
+        speed = 800;
+    }else if(objSpeed[1].checked){
+        speed = 400;
+    }else if(objSpeed[2].checked){
+        speed = 200;
+    }else {
+        speed = 500;
+    }
+
+    let left = insertSort[num][0],
+        right = insertSort[num][1],
+        boolean = insertSort[num][2];
+    let swops = swop(left,right);
+    if(boolean){
+        insertArrow(left,right);
+        swops.swopColor1("red");
+        await sleep(speed);
+        swops.swopSite(); //交换位置
+        swops.swopStyle(); //交换class
+        await sleep(speed);
+        swops.swopColor2("#00c4ff");
+    }else{
+        insertArrow(left,right);
+        swops.swopColor1("red");
+        await sleep(speed);
+        swops.swopColor2("#00c4ff");
+    }
 }
 
-async function insertionSort(array) {
-    console.time('插入排序耗时');
-    for (let i = 0; i < array.length-1; i++) {
-        let j = i;
-        while (arr[j] > arr[j+1]) {
-            let stop = $("#insertStop").val();
-            if(stop == "已暂停" && next == 0 || speed == 0) {
-                console.log("暂停", next, speed);
-                let result = await sleep(200);
-            } else {
-                if (next > 0) {
-                    next--;
-                }
-                let da = arr[j + 1];
-                arr[j + 1] = arr[j];
-                await dv(j,1);
-                arr[j] = da;
-                j--;
-                let result = await sleep(speed * 1000);
-                //dv(arr);
-                // $(".li"+j).css({"background":"#000"});
-                // $(".li"+(j+1)).css({"background":"#000"});
-            }
-        }
-        while (arr[j] <= arr[j+1]) {
-            let stop = $("#insertStop").val();
-            if(stop == "已暂停" && next == 0 || speed == 0) {
-                console.log("暂停", next, speed);
-                let result = await sleep(200);
-            } else {
-                if (next > 0) {
-                    next--;
-                }
-
-                await dv(j,0);
-                j--;
-                let result = await sleep(speed * 1000);
-                //dv(arr);
-                // $(".li"+j).css({"background":"#000"});
-                // $(".li"+(j+1)).css({"background":"#000"});
-            }
-        }
-        $("#insertWrap .p3").css({"width":(i+1)*60+"px"});
-        $("#xx").append("<li>第"+(i+1)+"次排序结果"+arr+"</li>")
+/*排序指示区宽度*/
+async function insertArea(num,dir){
+    let left = insertSort[num][0],
+        right = insertSort[num][1];
+    if(left == 0 && right == 1 && dir == 0){
+        await sleep(speed*2.5);
+        insertNum2++;
+        insertAreaWidth(insertNum2);
+    }else if(left == 0 && right == 1 && dir == 1){
+        await sleep(speed*2.5);
+        insertNum2--;
+        insertAreaWidth(insertNum2);
     }
-    $("#insertWrap .p3").css({"width":(arr.length)*60+"px"});
-    console.timeEnd('插入排序耗时');
-    $(".insertText").text("排序结束");
-    return array;
 }
 
-insertionSort(arr);
-
-$("#insertStop").click(function() {
-    if($("#insertStop").val() == "运行中"){
-        $("#insertStop").val("已暂停");
-        $("#insertStop").css({"background":"red"});
-        //$(".insertText").text("已暂停...");
-    }else if($("#insertStop").val() == "已暂停"){
-        $("#insertStop").val("运行中");
-        $("#insertStop").css({"background":"#4cae4c"});
-        //$(".insertText").text("运行中...");
+/*下一步*/
+$("#insertNext").click(function(){
+    if(insertNum < insertSort.length){
+        insertAction(insertNum);
+        insertArea(insertNum,0);
+        insertNum++;
     }
-})
-$("#insertNext").click(function() {
-    next++;
+});
+
+/*上一步*/
+$("#insertLast").click(function(){
+    if(insertNum > 0){
+        insertNum--;
+        insertAction(insertNum);
+        insertArea(insertNum,1);
+    }
+});
+
+/*自动排序*/
+$("#insertStart").click(async function(){
+    if(insertStartName() == 0){
+        $("#insertStart").attr("name",1);
+    }else if(insertStartName() == 1){
+        $("#insertStart").attr("name",0);
+    }
+    while(true){
+        if(insertNum < insertSort.length && insertStartName() == 1){
+            insertAction(insertNum);
+            insertArea(insertNum,0);
+            insertNum++;
+            await sleep(speed*3);
+        }else{
+            $("#insertStart").attr("name",0);
+            break;
+        }
+    }
+});
+
+$("#insertDataInput").click(function(){
+    $("#insertStart").attr("name",0);
+    arr = insertDatas(  $("#insertData").val()  );
+    init(arr);
+});
+
+$("#insertReset").click(function(){
+    $("#insertStart").attr("name",0);
+    init(arr);
 })
