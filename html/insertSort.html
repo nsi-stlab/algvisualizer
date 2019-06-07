@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="images/logo.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -54,6 +55,29 @@
     <br/>
     <br/>
     <div id="fh5co-main">
+        <!--<div class="insertSide">-->
+            <!--<div class="insertSideButton"></div>-->
+        <!--</div>-->
+        <div class="insertSideTop">
+            <div class="top1">
+                &nbsp;
+                <span>速度:</span>
+                <label><input type="radio" name="speed" value="慢速">慢速</label>
+                <label><input type="radio" name="speed" value="正常" checked>正常</label>
+                <label><input type="radio" name="speed" value="快速">快速</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>代码高亮:</span>
+                <label><input type="radio" name="code" value="开启"checked>开启</label>
+                <label><input type="radio" name="code" value="关闭">关闭</label>
+            </div>
+            <div class="top2">
+                <p>
+                    <span id="insertLast" class="icon ion-ios-arrow-back"></span>
+                    <span id="insertStart" class="icon ion-ios-play" name="0"></span>
+                    <span id="insertNext" class="icon ion-ios-arrow-forward"></span>
+                </p>
+            </div>
+        </div>
         <div class="fh5co-narrow-content">
             <div class="row">
                 <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
@@ -62,27 +86,34 @@
                             <ul id="x">
                                 <p class="p3"><span>已排序</span></p>
                                 <p class="p4"><span>未排序</span></p>
-                                <p class="p1"></p>
-                                <p class="p2"></p>
+                                <!--<p class="p1"></p>-->
+                                <!--<p class="p2"></p>-->
                             </ul>
                         </div>
-                        <input id="insertStart" name="0" type="button" value="自动播放">
-                        <!--<p class="insertText">点按暂停/开始...</p>-->
-                        <input id="insertNext" type="button" value="下一步">
-                        <input id="insertLast" type="button" value="上一步">
-                        <br/><br/>
-                        <input id="insertData" type="text" value="用英文逗号分隔">
-                        <input id="insertDataInput" type="button" value="排序">
-                        <br/><br/>
-                        <input type="radio" name="speed" value="慢速">慢速
-                        <input type="radio" name="speed" value="正常" checked>正常
-                        <input type="radio" name="speed" value="快速">快速
-                        <br/><br/>
-                        <input id="insertReset" type="button" value="重置">
-                        <div>
-                            <ul id="xx">
-
+                        <div class="insertCode">
+                            <ul>
+                                <li>let array = [6,3,2,5,9,8,4,1];<br/></li>
+                                <li>let list = [];<br/></li>
+                                <li>let data = 0;<br/></li>
+                                <li>let on = 0;<br/></li>
+                                <li>for(let i=0;i&ltarray.length-1;i++){<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;for(let j=i;j>=0;j--){<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(array[j] > array[j+1]){<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j]和array[j+1]交换<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on++;<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;}<br/></li>
+                                }<br/></li>
                             </ul>
+                            <p class="clearfix"></p>
+                        </div>
+                        <div class="insertInput">
+                            <input id="insertData" type="text" value="用英文逗号分隔">
+                            <input id="insertDataInput" type="button" value="排序">
+                            <br/><br/>
+                            <input id="insertReset" type="button" value="重置">
                         </div>
                     </figure>
                 </div>
@@ -129,8 +160,9 @@
 <script src="js/main.js"></script>
 <script src="js/alg/function.js"></script>
 <!-- STACK JS -->
-<script src="js/alg/insertSort/insertSort.js"></script>
-<script src="js/alg/insertSort/index.js"></script>
+<script src="js/alg/insertSort/model.js"></script>
+<script src="js/alg/insertSort/controller.js"></script>
+<script src="js/alg/insertSort/view.js"></script>
 </body>
 
 </html>

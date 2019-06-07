@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var time;
+        function sleep(second) {
+            return new Promise((resolve, reject) => {
+                time = setTimeout(() => {
+                    resolve("时间到");
+                }, second);
+            })
+        }
+
+        async function main() {
+            console.log("开始暂停")
+            await sleep(2000);
+            console.log("a");
+            console.log("bs");
+        }
+
+        function t(){
+            clearInterval(time);
+            console.log("被中断");
+        }
+
+
+        main();
+        t();
+    </script>
+</body>
+</html>
