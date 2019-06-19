@@ -30,8 +30,6 @@
                 <li><a href="queue.html">循环队列</a></li>
                 <li><a href="stack.html">栈</a></li>
                 <li class="fh5co-active"><a href="insertSort.html">插入排序</a></li>
-                <li><a href="">链表</a></li>
-                <li><a href="">二叉树</a></li>
             </ul>
         </nav>
         <div class="fh5co-footer">
@@ -58,20 +56,27 @@
         <!--<div class="insertSide">-->
             <!--<div class="insertSideButton"></div>-->
         <!--</div>-->
+        <!--<div id="mask">-->
+            <!--<div class="mask-tip">-->
+                <!--<span id="mask-desc" class="mask-tip-desc"></span>-->
+                <!--<button id="mask-next" class="mask-tip-btn">下一步</button>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="insertSideTop">
             <div class="top1">
-                &nbsp;
-                <span>速度:</span>
-                <label><input type="radio" name="speed" value="慢速">慢速</label>
-                <label><input type="radio" name="speed" value="正常" checked>正常</label>
-                <label><input type="radio" name="speed" value="快速">快速</label>
+                <div id="top1Speed" style="display: inline-block;">
+                    <span>速度:</span>
+                    <label><input type="radio" name="speed" value="慢速">慢速</label>
+                    <label><input type="radio" name="speed" value="正常" checked>正常</label>
+                    <label><input type="radio" name="speed" value="快速">快速</label>
+                </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>代码高亮:</span>
-                <label><input type="radio" name="code" value="开启"checked>开启</label>
-                <label><input type="radio" name="code" value="关闭">关闭</label>
+                <!--<span>代码高亮:</span>-->
+                <!--<label><input type="radio" name="code" value="开启"checked>开启</label>-->
+                <!--<label><input type="radio" name="code" value="关闭">关闭</label>-->
             </div>
             <div class="top2">
-                <p>
+                <p id="top2P">
                     <span id="insertLast" class="icon ion-ios-arrow-back"></span>
                     <span id="insertStart" class="icon ion-ios-play" name="0"></span>
                     <span id="insertNext" class="icon ion-ios-arrow-forward"></span>
@@ -92,20 +97,19 @@
                         </div>
                         <div class="insertCode">
                             <ul>
-                                <li>let array = [6,3,2,5,9,8,4,1];<br/></li>
-                                <li>let list = [];<br/></li>
-                                <li>let data = 0;<br/></li>
-                                <li>let on = 0;<br/></li>
+                                <li>let array = [6,3,2,5,9,8,4,1]<br/></li>
+                                <li>let data<br/></li>
                                 <li>for(let i=0;i&ltarray.length-1;i++){<br/></li>
                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;for(let j=i;j>=0;j--){<br/></li>
                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(array[j] > array[j+1]){<br/></li>
-                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j]和array[j+1]交换<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = array[j]</li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j] = array[j+1]</li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j+1] = data</li>
                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{<br/></li>
                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/></li>
                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/></li>
-                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on++;<br/></li>
                                 <li>&nbsp;&nbsp;&nbsp;&nbsp;}<br/></li>
-                                }<br/></li>
+                                <li>}<br/></li>
                             </ul>
                             <p class="clearfix"></p>
                         </div>
@@ -115,6 +119,16 @@
                             <br/><br/>
                             <input id="insertReset" type="button" value="重置">
                         </div>
+                        <div class="easyui-slider"
+                             <!--data-options="-->
+                            <!--min:0,max:insertSort[mark].length-1,step:1,-->
+                            <!--onChange:function(v){-->
+                                <!--console.log(v);-->
+                                <!--insertNum = v;-->
+                                <!--insertAction();-->
+                            <!--}-->
+                        <!--" -->
+                             style="width:300px"></div>
                     </figure>
                 </div>
             </div>

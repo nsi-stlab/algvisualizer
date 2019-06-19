@@ -1,55 +1,71 @@
-/*交换元素动画*/
-async function insertAction(num) {
-    let objSpeed = document.getElementsByName("speed");
-    let objCode = document.getElementsByName("code");
+var insertSort,
+    insertNum,
+    speed = 200,
+    mark = 0,
+    arr = [6,3,2,5,9,8,4,1]; //初始化
 
-    if(objSpeed[0].checked){
-        speed = 800;
-    }else if(objSpeed[1].checked){
-        speed = 400;
-    }else if(objSpeed[2].checked){
-        speed = 200;
-    }else {
-        speed = 500;
-    }
+function init(arr){
+    initFun.insertListDelete(); //删除全部列表元素
+    initFun.insertListCreate(arr); //创建列表元素
+    initFun.insertAreaWidth(0); //已排序&未排序的背景
+    initFun.insertArrow(0,1); //左右元素箭头
+    insertSort = initFun.insertSorts(arr,initFun.insertMark(arr)); //获得排序数据
+    insertNum = -1; //排序标识
+    console.log(insertSort);
+    $(".easyui-slider").slider({
+        mode:"h",
+        min :0,
+        max :insertSort[0].length-1,
+        rule:[0+'%','|',25+'%','|',50+'%','|',75+'%','|',100+'%'],
+        showTip:true,
+        value:0
+    })
+}
+init(arr)
 
-    let left = insertSort[num][0],
-        right = insertSort[num][1],
-        boolean = insertSort[num][2];
-
-    let insertCodes = insertCode();
-    let insertSwopShows = insertSwopShow(left,right);
-
-    if(boolean){ //交换元素
-        if(objCode[0].checked){ //代码开启
-            if(num == 0){
-                await insertCodes.insertCodeAuto(0,3);
-            }
-            await insertSwopShows.swopOkCodeOk();
+/*自动排序*/
+$("#insertStart").click(async function(){
+    insertTool.insertStartAuto();
+    while(true){
+        if(insertNum < insertSort[mark].length-1 && insertTool.insertStartName() == 1){
+            insertNum++;
+            insertAction();
+            await sleep(speed);
         }else{
-            await insertSwopShows.swopOkCodeNo();
-        }
-    }else{
-        if(objCode[0].checked) { //开启
-            if(num == 0){
-                await insertCodes.insertCodeAuto(0,3);
-            }
-            await insertSwopShows.swopNoCodeOk();
-        }else{
-            await insertSwopShows.swopNoCodeNo();
+            $("#insertStart").attr("name",0);
+            break;
         }
     }
-}
+})
 
-/*排序指示区宽度*/
-async function insertArea(num,dir){
-    let left = insertSort[num][0],
-        right = insertSort[num][1];
-    if(left == 0 && right == 1 && dir == 0){
-        insertNum2++;
-        insertAreaWidth(insertNum2);
-    }else if(left == 0 && right == 1 && dir == 1){
-        insertNum2--;
-        insertAreaWidth(insertNum2);
+
+/*上一步*/
+$("#insertLast").click(function(){
+    $("#insertStart").attr("name",0);
+    if(insertNum > 0){
+        insertNum--;
+        insertAction();
     }
-}
+});
+
+/*下一步*/
+$("#insertNext").click(function(){
+    $("#insertStart").attr("name",0);
+    if(insertNum < insertSort[mark].length-1){ //是否还有排序未完成元素
+        insertNum++;
+        insertAction();
+    }
+});
+
+/*排序*/
+$("#insertDataInput").click(function(){
+    $("#insertStart").attr("name",0);
+    arr = insertTool.insertDatas(  $("#insertData").val()  );
+    init(arr);
+});
+
+/*重置*/
+$("#insertReset").click(function(){
+    $("#insertStart").attr("name",0);
+    init(arr);
+})

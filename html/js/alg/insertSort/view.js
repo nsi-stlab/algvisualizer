@@ -1,67 +1,36 @@
-var insertSort,insertNum,insertNum2,speed=500; //初始化
-var arr = [6,3,2,5,9,8,4,1];
-function init(arr){
-    let insertLists = insertList();
-    insertLists.insertListDelete(); //删除全部列表元素
-    insertLists.insertListCreate(arr); //创建列表元素
-    insertAreaWidth(0); //已排序&未排序的背景
-    insertArrow(0,1);
-    insertSort = insertSorts(arr); //获得排序数据
-    insertNum = 0,insertNum2 = 0; //排序标识
+/*交换元素动画*/
+function insertAction() {
+    $('.easyui-slider').slider('setValue',insertNum);
+    insertRedio.insertRedioSpeed();
+    insertRedio.insertRedioCode();
+    let insertSortArr = insertSort[mark][insertNum];
+    console.log(insertSortArr);
+    insertCode.insertCodeAuto(insertSortArr[0]);
+    insertSwop.insertSwopPx(insertSortArr[1]);
+    insertSwop.insertSwopBg(
+        insertSortArr[2][0],
+        insertSortArr[2][1],
+        insertSortArr[2][2],
+        insertSortArr[1]
+    );
+    console.log(insertSortArr[3]);
+    initFun.insertAreaWidth(insertSortArr[3]);
 }
-init(arr);
 
-/*自动排序*/
-$("#insertStart").click(async function(){
-    if(insertStartName() == 0){
-        $("#insertStart").attr("name",1);
-    }else if(insertStartName() == 1){
-        $("#insertStart").attr("name",0);
+$(".easyui-slider").slider({
+    onChange: function (newValue) {
+        insertNum = newValue;
+        //$("#insertStart").attr("name",0);
+        insertAction();
     }
-    while(true){
-        if(insertNum < insertSort.length && insertStartName() == 1){
-            await insertAction(insertNum);
-            await insertArea(insertNum,0);
-            insertNum++;
-            await sleep(speed);
-        }else{
-            $("#insertStart").attr("name",0);
-            break;
-        }
-    }
-});
-
-/*上一步*/
-$("#insertLast").click(async function(){
-    $("#insertStart").attr("name",0);
-    if(insertNum > 0){
-        insertNum--;
-        await insertAction(insertNum);
-        await insertArea(insertNum,1);
-    }
-});
-
-/*下一步*/
-$("#insertNext").click(async function(){
-    $("#insertStart").attr("name",0);
-    if(insertNum < insertSort.length){ //是否还有排序未完成元素
-        await insertAction(insertNum);
-        await insertArea(insertNum,0);
-        insertNum++;
-    }
-});
-
-/*排序*/
-$("#insertDataInput").click(function(){
-    $("#insertStart").attr("name",0);
-    arr = insertDatas(  $("#insertData").val()  );
-    init(arr);
-});
-
-/*重置*/
-$("#insertReset").click(function(){
-    $("#insertStart").attr("name",0);
-    init(arr);
 })
 
-/*侧边菜单*/
+// mask([
+//     {
+//         id: 'top2P',
+//         desc: '上一步<br/>播放<br/>下一步'
+//     },{
+//         id: 'top1Speed',
+//         desc: '上一步<br/>播放<br/>下一步'
+//     }
+// ]);
