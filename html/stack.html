@@ -19,13 +19,15 @@
         <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
         <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
             <h1 id="fh5co-logo">
-                <a href="index.html"><img src="images/logo.png" alt="Free HTML5 Bootstrap Website Template"></a>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Free HTML5 Bootstrap Website Template">
+                </a>
             </h1>
             <nav id="fh5co-main-menu" role="navigation">
                 <ul>
                     <li><a href="index.html">首页</a></li>
-                    <li class="fh5co-active"><a href="queue.html">循环队列</a></li>
-                    <li><a href="stack.html">栈</a></li>
+                    <li><a href="queue.html">循环队列</a></li>
+                    <li class="fh5co-active"><a href="stack.html">栈</a></li>
                     <li><a href="insertSort.html">插入排序</a></li>
                 </ul>
             </nav>
@@ -40,7 +42,9 @@
                 </p>
                 <ul>
                     <li>
-                        <a href="https://github.com/nsi-stlab/algvisualizer"><i class="icon-github"></i></a>
+                        <a href="https://github.com/nsi-stlab/algvisualizer">
+                            <i class="icon-github"></i>
+                        </a>
                     </li>
                     <!--<li><a href="#"><i class="icon-twitter"></i></a></li>
                     <li><a href="#"><i class="icon-instagram"></i></a></li>
@@ -60,10 +64,10 @@
                 <div class="row">
                     <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
                         <figure class="text-center">
-                            <h2 id="h4">循环队列已空</h2>
+                            <h2 id="h4">栈已空</h2>
                             <div class="queueHead">
-                                <p class="p1">队头</p>
-                                <p class="p2">队尾</p>
+                                <p class="p1">栈顶</p>
+                                <p class="p2">栈底</p>
                             </div>
                             <div id="z" class="clearfix">
                                 <ul id="x">
@@ -71,16 +75,16 @@
                                 </ul>
                             </div>
                             <div class="queueBottom">
-                                <p class="p1">队头</p>
-                                <p class="p2">队尾</p>
+                                <p class="p1">栈顶</p>
+                                <p class="p2">栈底</p>
                             </div>
                             <div class="rc">
-                                <input type="text" value="0" class="form-control inQueue" id="in">
-                                <input type="button" value="入队" class="btn btn-info in">
+                                <input type="text" value="0" class="form-control inStack" id="in">
+                                <input type="button" value="入栈" class="btn btn-info in">
                                 <br/>
                                 <br/>
-                                <input type="text" value="1" class="form-control outQueue" id="out">
-                                <input type="button" value="出队" class="btn btn-info out">
+                                <input type="text" value="1" class="form-control outStack" id="out">
+                                <input type="button" value="出栈" class="btn btn-info out">
                             </div>
                             <!--<h1>队列</h1>-->
                             <!--<div class="rc2">
@@ -128,8 +132,8 @@
     <script src="js/main.js"></script>
     <script src="js/alg/function.js"></script>
     <!-- STACK JS -->
-    <script src="js/alg/queue/queue.js"></script>
-    <script src="js/alg/queue/index.js"></script>
+    <script src="js/alg/stack/stack.js"></script>
+    <script src="js/alg/stack/index.js"></script>
 </body>
 
 </html>

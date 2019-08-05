@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>数据结构-算法可视化演示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/easyui.css">
+</head>
+<body>
+<div id="fh5co-page">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+    <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+        <h1 id="fh5co-logo">
+            <a href="index.html"><img src="images/logo.png" alt="Free HTML5 Bootstrap Website Template"></a>
+        </h1>
+        <nav id="fh5co-main-menu" role="navigation">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="queue.html">循环队列</a></li>
+                <li><a href="stack.html">栈</a></li>
+                <li class="fh5co-active"><a href="insertSort.html">插入排序</a></li>
+            </ul>
+        </nav>
+        <div class="fh5co-footer">
+            <p>
+                <small>
+                    <span>&copy; Copyright 2019 沈阳北软信息职业技术学院</span>
+                    <span>北软NSI-STLAB算法可视化演示</span>
+                    <!--<span>Demo Images:
+                    <a href="http://unsplash.com/" target="_blank">Unsplash</a></span>-->
+                </small>
+            </p>
+            <ul>
+                <li>
+                    <a href="https://github.com/nsi-stlab/algvisualizer"><i class="icon-github"></i></a>
+                </li>
+                <!--<li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-instagram"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>--></ul>
+        </div>
+    </aside>
+    <br/>
+    <br/>
+    <div id="fh5co-main">
+        <!--<div class="insertSide">-->
+            <!--<div class="insertSideButton"></div>-->
+        <!--</div>-->
+        <!--<div id="mask">-->
+            <!--<div class="mask-tip">-->
+                <!--<span id="mask-desc" class="mask-tip-desc"></span>-->
+                <!--<button id="mask-next" class="mask-tip-btn">下一步</button>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="insertSideTop">
+            <div class="top1">
+                <div id="top1Speed" style="display: inline-block;">
+                    <span>速度:</span>
+                    <label><input type="radio" name="speed" value="慢速">慢速</label>
+                    <label><input type="radio" name="speed" value="正常" checked>正常</label>
+                    <label><input type="radio" name="speed" value="快速">快速</label>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <!--<span>代码高亮:</span>-->
+                <!--<label><input type="radio" name="code" value="开启"checked>开启</label>-->
+                <!--<label><input type="radio" name="code" value="关闭">关闭</label>-->
+            </div>
+            <div class="top2">
+                <p id="top2P">
+                    <span id="insertLast" class="icon ion-ios-arrow-back"></span>
+                    <span id="insertStart" class="icon ion-ios-play" name="0"></span>
+                    <span id="insertNext" class="icon ion-ios-arrow-forward"></span>
+                </p>
+            </div>
+        </div>
+        <div class="fh5co-narrow-content">
+            <div class="row">
+                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                    <figure class="text-center">
+                        <div id="insertWrap">
+                            <ul id="x">
+                                <p class="p3"><span>已排序</span></p>
+                                <p class="p4"><span>未排序</span></p>
+                                <!--<p class="p1"></p>-->
+                                <!--<p class="p2"></p>-->
+                            </ul>
+                        </div>
+                        <div class="insertCode">
+                            <ul>
+                                <li>let array = [6,3,2,5,9,8,4,1]<br/></li>
+                                <li>let data<br/></li>
+                                <li>for(let i=0;i&ltarray.length-1;i++){<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;for(let j=i;j>=0;j--){<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(array[j] > array[j+1]){<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = array[j]</li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j] = array[j+1]</li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[j+1] = data</li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不执行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/></li>
+                                <li>&nbsp;&nbsp;&nbsp;&nbsp;}<br/></li>
+                                <li>}<br/></li>
+                            </ul>
+                            <p class="clearfix"></p>
+                        </div>
+                        <div class="insertInput">
+                            <input id="insertData" type="text" value="用英文逗号分隔">
+                            <input id="insertDataInput" type="button" value="排序">
+                            <br/><br/>
+                            <input id="insertReset" type="button" value="重置">
+                        </div>
+                        <div class="easyui-slider"
+                             <!--data-options="-->
+                            <!--min:0,max:insertSort[mark].length-1,step:1,-->
+                            <!--onChange:function(v){-->
+                                <!--console.log(v);-->
+                                <!--insertNum = v;-->
+                                <!--insertAction();-->
+                            <!--}-->
+                        <!--" -->
+                             style="width:300px"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="row work-pagination animate-box" data-animate-effect="fadeInLeft">
+                <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                        <a href="#">
+                            <i class="icon-long-arrow-left"></i>
+                            <span>Previous Project</span>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                        <a href="#">
+                            <i class="icon-th-large"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                        <a href="#">
+                            <span>Next Project</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+
+
+<script src="js/jquery.easyui.min.js"></script>
+
+<!-- Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Stellar -->
+<script src="js/jquery.stellar.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- MAIN JS -->
+<script src="js/main.js"></script>
+<script src="js/alg/function.js"></script>
+<!-- STACK JS -->
+<script src="js/alg/insertSort/model.js"></script>
+<script src="js/alg/insertSort/controller.js"></script>
+<script src="js/alg/insertSort/view.js"></script>
+</body>
+
+</html>

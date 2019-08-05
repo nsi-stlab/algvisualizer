@@ -191,3 +191,38 @@ input{
     cursor: pointer;
     color: white;
 }
+
+#insertWrap{display:inline-block; margin-top: 80px; float: left;}
+#insertWrap .p1 , #insertWrap .p2{background-image:url("../images/arrow.png"); width: 15px; height: 60px; position: absolute; background-size: 30px 60px; top:70px; opacity: 1;}
+#insertWrap .p1{background-position-x:0px; left: 10px;transition:all 0.4s !important;}
+#insertWrap .p2{background-position-x:-15px; left: 10px;transition:all 0.2s !important;}
+#insertWrap .p3{margin: 0; padding: 0;height: 80px; border-radius:15px; background: green; position: absolute; width: 60px; transition:all 0.2s !important;}
+#insertWrap .p4{margin: 0; padding: 0;height: 80px;  border-radius:15px; left: 60px; background: orange; position: absolute; width: 0px; transition:all 0.2s !important;}
+#insertWrap .p3 span , #insertWrap .p4 span{position: absolute; width: 100%; left: 0; top:-35px; overflow: hidden;}
+#insertWrap ul{height:80px;display: inline-block; clear: both; position: relative; width: 100%;}
+#insertWrap li{width: 40px; height: 40px; top:20px; background: #00c4ff; color: white; margin-left: 0px; list-style: none; float: left; position: absolute; left: 0px; transition:all 0.4s !important;}
+
+#insertStop{color: white;background:red; border: 0;}
+
+#xx li{list-style: none;}
+
+#insertData{width: 200px;}
+
+.insertCode{float: right; margin-top: 60px;}
+.insertCode ul{text-align: left; display: inline-block; float: left; top: 0;right: 0;}
+.insertCode ul li{list-style: none; border-radius: 15px; padding:0 10px;}
+
+.insertInput{float: left; padding-top: 10px;}
+
+.insertSide{position:absolute; display: inline-block; height: 800px; width: 300px; top: 0; right: -300px;}
+.insertSide .insertSideButton{background: yellow; width: 60px; height: 60px; position: absolute; left: -60px; top: 0px;}
+.insertSide .insertSideButton:hover{top: 10px;}
+
+.insertSideTop{width: 100%; height:80px; position: absolute; top: 0; z-index: 999;}
+.insertSideTop .top1{height: 40px; background: #BABABA; border: white solid 1px; color: white;}
+.insertSideTop .top1 label{cursor: pointer;}
+.insertSideTop .top1 input{height: 16px; width: 16px;}
+.insertSideTop .top2{height: 40px; background: #BABABA; border: white solid 1px;}
+.insertSideTop .top2 p{display: inline-block; height: 100%;}
+.insertSideTop .top2 span{color:#383838; width: 40px; height: 100%; display: inline-block; text-align: center; cursor:pointer}
+.insertSideTop .top2 span:hover{background:#383838; color: #BABABA; text-align: center; }
